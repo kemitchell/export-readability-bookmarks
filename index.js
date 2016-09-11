@@ -1,5 +1,4 @@
 var readability = require('readability-api')
-var stringify = require('lispy-json')
 
 readability.configure({
   consumer_key: process.env.READABILITY_KEY,
@@ -26,7 +25,7 @@ readability.xauth(
           process.exit(1)
         } else {
           console.error('Read page ' + page)
-          console.log(stringify(bookmarks))
+          console.log(JSON.stringify(bookmarks))
           var pages = bookmarks.meta.num_pages
           if (page === pages) {
             process.exit(0)
